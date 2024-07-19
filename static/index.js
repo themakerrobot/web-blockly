@@ -33,13 +33,15 @@ window.onload = function() {
             return Sk.builtinFiles["files"][filename];
           }
       });
-    
+        
+      document.getElementById("output-content").innerText = new Date().toString() + '\n\n';
+        
       (Sk.TurtleGraphics || (Sk.TurtleGraphics = {})).target = 'turtle';
     
       Sk.misceval.asyncToPromise(function () {
         return Sk.importMainWithBody("<stdin>", false, code, true);
       }).then(function (mod) {
-        document.getElementById("output-content").innerText += '\n\nEnd.';
+        document.getElementById("output-content").innerText += '\n\n종료';
       }).catch(function (err) {
         document.getElementById("output-content").innerText = err.toString();
       });
