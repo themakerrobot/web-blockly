@@ -771,6 +771,7 @@ let toolbox = (lang) => {
       {
         "kind": "sep",
       },
+      /*
       { // Audio
         "kind": "category",
         "name": translations['audio'][lang],
@@ -2357,7 +2358,7 @@ let toolbox = (lang) => {
         "cssConfig": {
           "icon": "customIcon fa-solid fa-toolbox"
         }
-      },
+      },*/
     ]
   } 
 }
