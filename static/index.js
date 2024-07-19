@@ -10,8 +10,8 @@ window.onload = function() {
         theme: "monokai",
         lineNumbers: true,
         readOnly: true
-      });
-    
+    });
+    editor.getWrapperElement().style.fontSize = "16px";
     view.addEventListener('click', async () => {
       const code = Blockly.Python.workspaceToCode(workspace);
       console.log(code);
@@ -20,7 +20,8 @@ window.onload = function() {
 
     run.addEventListener('click', async () => {
       code = Blockly.Python.workspaceToCode(workspace);
-      console.log(code)
+      console.log(code);
+      editor.setValue(codetext);
       Sk.execLimit = 60 * 1000;
       Sk.configure({
         output: function (text) {
