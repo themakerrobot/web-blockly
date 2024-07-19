@@ -21,7 +21,7 @@ window.onload = function() {
     run.addEventListener('click', async () => {
       code = Blockly.Python.workspaceToCode(workspace);
       console.log(code);
-      editor.setValue(codetext);
+      editor.setValue(code);
       Sk.execLimit = 60 * 1000;
       Sk.configure({
         output: function (text) {
