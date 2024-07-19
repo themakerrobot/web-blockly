@@ -19,12 +19,9 @@ window.onload = function() {
     });
 
     run.addEventListener('click', async () => {
-      codetext = Blockly.Python.workspaceToCode(workspace);
-      console.log(codetext)
-
+      codetext = Blockly.Python.workspaceToCode(code);
+      console.log(code)
       Sk.execLimit = 60 * 1000;
-
-    
       Sk.configure({
         output: function (text) {
             document.getElementById("output-content").innerText += text.replace(/^\n+/, ''); // 공백 제거
