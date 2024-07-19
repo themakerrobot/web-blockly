@@ -1,0 +1,140 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    background-color: #f4d85a;
+    box-shadow: 0 -3px 3px -3px #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: calc(100% - 80px); /* Adjusted height to account for the title and padding */
+}
+
+.editor-container, .output-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.controls div {
+    display: flex;
+    align-items: center;
+}
+
+.CodeMirror {
+    flex: 1;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #f4de3d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #f4d85a;
+    font-weight: bold;
+}
+
+#font-size-container label {
+    margin-right: 10px;
+}
+
+#output-title {
+    font-weight: bold;
+    text-align: left;
+    margin: 0;
+    font-size: 24px;
+}
+
+#output, #python-code {
+    background: #f8f8f8;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    flex: 1;
+    overflow-y: auto;
+    margin-top: 10px;
+}
+
+.blocklyDiv {
+  height:calc(100vh - 130px);
+  /* display: none; hide the element by default */
+}
+
+/* Makes our label white. */
+.blocklyTreeLabel {
+  color:black;
+}
+.blocklyToolboxDiv {
+  background-color: whitesmoke;
+}
+/* Adds padding around the group of categories and separators. */
+/* .blocklyToolboxContents {
+  padding: 0.5em;
+} */
+/* Adds space between the categories, rounds the corners and adds space around the label. */
+.blocklyTreeRow {
+  padding: 2px;
+  margin: 0.1em;
+  /* border-radius: 15px; */
+  /* width: 100px; */
+  height: 28px;
+  /* height: initial; */
+  background-color: whitesmoke;
+}
+
+/* Changes color of the icon to white. */
+.customIcon {
+  margin: 0.1em 0.1em 0.1em 0.1em;
+  padding: 2px;
+  color:black;
+  /* width: 30px; */
+  /* color:rgb(0, 0, 0); */
+}
+/* Stacks the icon on top of the label. */
+.blocklyTreeRowContentContainer {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+}
