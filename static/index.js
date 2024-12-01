@@ -210,6 +210,27 @@ const workspace = Blockly.inject("blocklyDiv", {
     }
   }),
 });
+
+
+Blockly.Python.init(workspace);
+Blockly.Python.nameDB_.getName = function(name, type) {
+  const enc_name = Blockly.Names.prototype.getName.call(this, name, type);
+
+  // 인코딩된 한글 문자 디코딩
+  const decodedName = enc_name.replace(/(_[A-Z0-9]{2})+/g, (match) => {
+    try {
+      const uriEncoded = match.replace(/_/g, "%");
+      return decodeURIComponent(uriEncoded);
+    } catch (error) {
+      return match; // 디코딩 실패 시 그대로 반환
+    }
+  });
+
+  // Python 변수명에 맞지 않는 문자 중 한글, 알파벳, 숫자, 밑줄만 허용하고 나머지를 언더스코어로 변환
+  const pythonCompatibleName = decodedName.replace(/[^a-zA-Z0-9가-힣_]/g, "_");
+  return pythonCompatibleName;
+};
+    
 workspace.addChangeListener ((event)=>{
   update_block();
   if (event.type == Blockly.Events.CREATE) {
