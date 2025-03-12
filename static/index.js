@@ -130,7 +130,7 @@ const workspace = Blockly.inject("blocklyDiv", {
   grid: {
     spacing: 20,
     length: 3,
-    colour: '#ddd',
+    colour: '#ffffff',
     snap: true
   },
   zoom: {
