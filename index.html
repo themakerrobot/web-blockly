@@ -22,11 +22,14 @@
     <script src="./static/python.js"></script>
     <script src="./static/index.js?ver=250312v1"></script>
     <script src="./static/ko.js?ver=250312v1"></script>
-    <title>Blockly Editor</title>
+    <title>Blockly IDE</title>
 </head>
 <body>
     <div class="wrapper">
-        <h1>Blockly Editor</h1>        
+        <h2>
+            <a id="fullscreen_bt" title="전체화면"><span id='fullscreen_txt'></span></a>
+            Blockly IDE               
+        </h2>     
         <div class="container">
             <div class="editor-container">
                 <div class="controls">
@@ -39,11 +42,11 @@
                 <div id="blocklyDiv" class="blocklyDiv"></div>
             </div>
             <div class="output-container">
-                <div id="output-title">Result</div>
+                <div id="output-title">결과</div>
                 <div id="output">
                     <div id="output-content"></div>
                 </div>
-                <div id="output-title">Python Code</div>
+                <div id="output-title">파이썬</div>
                 <div id="python-code"></div>
             </div>
         </div>
