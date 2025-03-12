@@ -43,7 +43,7 @@ window.onload = function() {
 
     let editor = CodeMirror(document.getElementById("python-code"), {
         mode: "python",
-        theme: "monokai",
+        theme: "cobalt",
         lineNumbers: true,
         readOnly: true
     });
