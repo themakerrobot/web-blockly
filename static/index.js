@@ -1,6 +1,4 @@
 window.onload = function() {
-
-
     let fullscreen = false;
     
     const fullscreenTxt = document.getElementById('fullscreen_txt');
@@ -33,7 +31,6 @@ window.onload = function() {
       fullscreen = !!document.fullscreenElement;
       updateIcon();
     });
-
     
     const command = document.getElementById('command');
     const result = document.getElementById('result');
@@ -88,32 +85,15 @@ window.onload = function() {
       Sk.execLimit = 0; 
     });
 
-let CURRENT_DIR;
-let CODE_PATH = '';
-let BLOCK_PATH = '';
 let saveCode = "";
 let saveBlock = "{}";
-
-function findBlocks(data) {
-  if (data && typeof data === 'object') {
-    if ('block' in data) {
-      jdata = data['block'];
-      if(jdata['type'].includes('_dynamic')) {
-        updateSecondDropdown.call(workspace.getBlockById(jdata['id']), jdata['fields']['dir'], jdata['fields']['filename'])
-      }
-    }
-    for (const key in data) {
-      findBlocks(data[key]);
-    }
-  }
-}
 
 let update_block = () => {
   $("#codecheck").html(saveBlock==JSON.stringify(Blockly.serialization.workspaces.save(workspace)) ? "" : "<i class='fa-solid fa-circle fa-fade'></i>");
 }
 
 const workspace = Blockly.inject("blocklyDiv", {
-  toolbox: lang=="en"?toolbox_en:toolbox_ko,
+  toolbox:  toolbox_dict[lang],
   collapse: true,
   comments: true,
   disable: true,
@@ -267,6 +247,9 @@ const workspace = Blockly.inject("blocklyDiv", {
 //   return pythonCompatibleName;
 // };
     
+const disableTopBlocks = new DisableTopBlocks(workspace);
+disableTopBlocks.init();
+
 workspace.addChangeListener ((event)=>{
   update_block();
   if (event.type == Blockly.Events.CREATE) {
@@ -323,15 +306,46 @@ $(document).keydown((evt)=> {
   return true;
 });
 
+
 const setLanguage = (langCode) => {
-  const elements = document.querySelectorAll('[data-key]');
-  elements.forEach(element => {
+    const elements = document.querySelectorAll('[data-key]');
+    elements.forEach(element => {
       const key = element.getAttribute('data-key');
       if (translations[key] && translations[key][langCode]) {
-          element.textContent = translations[key][langCode];
+        element.textContent = translations[key][langCode];
       }
-  });
+    });
+  
+    const langFileVersion = '240110v11';
+    const langFile = `./static/${langCode}.js?ver=${langFileVersion}`;
+    const prevKoScript = document.querySelector(`script[src*="./static/ko.js?ver=${langFileVersion}"]`);
+    if (prevKoScript) {
+      prevKoScript.remove();
+    }
+    const prevEnScript = document.querySelector(`script[src*="./static/en.js?ver=${langFileVersion}"]`);
+    if (prevEnScript) {
+      prevEnScript.remove();
+    }
+  
+    const script = document.createElement('script');
+    script.setAttribute('src', langFile);
+    document.head.appendChild(script);
+    workspace.updateToolbox(toolbox_dict[langCode]);
+  }
+  
+  // const language = document.getElementById("language");
+  // language.value = lang;
+  // setLanguage(lang);
+  // localStorage.setItem("language", lang);
+  
+  // language.addEventListener("change", function () {
+  //   lang = language.value;
+  //   setLanguage(lang);
+  //   localStorage.setItem("language", lang);
+  // });
+  
+  // // warning
+  // document.querySelector("div.CodeMirror textarea").setAttribute("name", "ctx");
 
  setLanguage('ko');
-}
 }

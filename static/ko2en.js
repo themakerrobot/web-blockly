@@ -11,12 +11,24 @@ const translations = {
     en: "Internet settings"
   },
   wifi_name: {
-    ko: "Wifi 이름",
-    en: "Wifi Name"
+    ko: "이름",
+    en: "Name"
+  },
+  wifi_type: {
+    ko: "종류",
+    en: "Type"
+  },
+  wifi_identity: {
+    ko: "아이디",
+    en: "Identity"
   },
   confirm: {
     ko: "확인",
     en: "Confirm"
+  },
+  cancel: {
+    ko: "취소",
+    en: "Cancel"
   },
   reset: {
     ko: "초기화",
@@ -63,20 +75,20 @@ const translations = {
     en: "Cannot move further up in the folder hierarchy"
   },
   confirm_load_file: {
-    ko: ( filepath ) => { return `${filepath} 파일을 불러오겠습니까?` },
-    en: ( filepath ) => { return `Would you like to load ${filepath}?` }
+    ko: (filepath) => {return `${filepath} 파일을 불러오겠습니까?`},
+    en: (filepath) => {return `Would you like to load ${filepath}?`}
   },
   confirm_save_file: {
-    ko: ( filepath ) => { return `${filepath} 파일을 저장하지 않았습니다. 저장하시겠습니까?` },
-    en: ( filepath ) => { return `${filepath} not saved.Would you like to save it?` }
+    ko: (filepath) => {return `${filepath} 파일을 저장하지 않았습니다. 저장하시겠습니까?`},
+    en: (filepath) => {return `${filepath} not saved. Would you like to save it?`}
   },
   confirm_delete_file: {
-    ko: ( filepath ) => { return `${filepath} 파일 또는 폴더를 삭제하시겠습니까?` },
-    en: ( filepath ) => { return `Are you sure you want to delete the file or folder ${filepath}?` }
+    ko: (filepath) => {return `${filepath} 파일 또는 폴더를 삭제하시겠습니까?`},
+    en: (filepath) => {return `Are you sure you want to delete the file or folder ${filepath}?`}
   },
   confirm_rename: {
-    ko: ( oldname, newname ) => { return `${oldname} 파일 또는 폴더의 이름을 ${newname}으로 변경하시겠습니까?` },
-    en: ( oldname, newname ) => { return `Are you sure you want to rename the file or folder ${oldname} to ${newname}?` },
+    ko: (oldname, newname) => {return `${oldname} 파일 또는 폴더의 이름을 ${newname}으로 변경하시겠습니까?`},
+    en: (oldname, newname) => {return `Are you sure you want to rename the file or folder ${oldname} to ${newname}?`}
   },
   confirm_restore: {
     ko: "초기화하시겠습니까?",
@@ -88,7 +100,7 @@ const translations = {
   },
   confirm_restart: {
     ko: "재시작하시겠습니까?",
-    en: "Are you sure you want to restart?",
+    en: "Are you sure you want to restart?"
   },
   check_newfolder_name: {
     ko: "새폴더의 이름을 입력하세요.",
@@ -99,8 +111,8 @@ const translations = {
     en: "Enter a name for the new file."
   },
   name_size_limit: {
-    ko: (max_limit) => { return ` (${max_limit}자 이하로 입력해주세요.)`},
-    en: (max_limit) => { return `Enter within ${max_limit} characters or less.`}
+    ko: (max_limit) => {return `(${max_limit}자 이하로 입력해주세요.)`},
+    en: (max_limit) => {return `Enter within ${max_limit} characters or less.`}
   },
   upload: {
     ko: "업로드",
@@ -130,7 +142,7 @@ const translations = {
     ko: "정지",
     en: "Stop"
   },
-  save : {
+  save: {
     ko: "저장",
     en: "Save"
   },
@@ -170,6 +182,10 @@ const translations = {
     ko: "함수",
     en: "Functions"
   },
+  event: {
+    ko: "이벤트",
+    en: "Event"
+  },
   audio: {
     ko: "소리",
     en: "Audio"
@@ -197,6 +213,10 @@ const translations = {
   vision: {
     ko: "시각",
     en: "Vision"
+  },
+  recognition: {
+    ko: "인식",
+    en: "Rec"
   },
   utils: {
     ko: "도구",
@@ -267,11 +287,23 @@ const translations = {
     en: "Select a file or create a new one."
   },
   file_number_limit: {
-    ko: (max_limit) => { return `파일은 ${max_limit}개 이하로 업로드해주세요.`},
-    en: (max_limit) => { return `Upload within ${max_limit} files or less.`}
+    ko: (max_limit) => {return `파일은 ${max_limit}개 이하로 업로드해주세요.`},
+    en: (max_limit) => {return `Upload within ${max_limit} files or less.`}
   },
   enter: {
     ko: "입력",
     en: "Enter"
+  },
+  auto: {
+    ko: "자동",
+    en: "Auto"
+  },
+  start: {
+    ko: "시작",
+    en: "Start"
+  },
+  classifier: {
+    ko: "분류기",
+    en: "Classifier"
   }
 };
